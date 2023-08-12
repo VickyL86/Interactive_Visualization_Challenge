@@ -11,6 +11,7 @@ d3.json(url).then(function(data) {
     });
     
     // Display object data from metadata array in json based on ID selected in dropdown
+    // Ppulatig Demographics Info element
     function displayMetadata(id) {
       const metadata = data.metadata.find(meta => meta.id.toString() === id);
       const demographicInfo = d3.select("#sample-metadata");
@@ -20,7 +21,8 @@ d3.json(url).then(function(data) {
       });
     }
 
-    // Display bar chart based on ID selected in dropdown
+    // Display bar chart based on ID selected in dropdown --> https://plotly.com/javascript/bar-charts/
+    // https://plotly.com/javascript/horizontal-bar-charts/
     function displayBarChart(id) {
       const samples = data.samples.filter(s => s.id.toString() === id)[0];
       const sampleValues = samples.sample_values.slice(0, 10).reverse();
@@ -85,18 +87,18 @@ d3.json(url).then(function(data) {
         type: "indicator",
         mode: "gauge+number",
         gauge: {
-          axis: { range: [null, 9],tickwidth: 1, tickcolor: "darkblue" },
-          bar: { color: "#9ACD32" },
+          axis: { range: [null, 9]},
+          bar: { color: "#FA8072" },
           steps: [
-            { range: [0, 1], color: "#e5f5e0" },
-            { range: [1, 2], color: "#c7e9c0" },
-            { range: [2, 3], color: "#a1d99b" },
-            { range: [3, 4], color: "#74c476" },
-            { range: [4, 5], color: "#41ab5d" },
-            { range: [5, 6], color: "#238b45" },
-            { range: [6, 7], color: "#006d2c" },
-            { range: [7, 8], color: "#00441b" },
-            { range: [8, 9], color: "#001a0c" }
+            { range: [0, 1], color: "#FFFABE" },
+            { range: [1, 2], color: "#FFF44F" },
+            { range: [2, 3], color: "#FFD700" },
+            { range: [3, 4], color: "#FFB884" },
+            { range: [4, 5], color: "#FF6B6B" },
+            { range: [5, 6], color: "#D6425E" },
+            { range: [6, 7], color: "#93204D" },
+            { range: [7, 8], color: "#561D3E" },
+            { range: [8, 9], color: "#330C2F" }
           ]
         }
       };
