@@ -41,7 +41,10 @@ d3.json(url).then(function(data) {
       Plotly.newPlot("bar", barData, barLayout);
     }
 
-    // Display bubble chart based on ID selected in dropdown
+    // Display bubble chart based on ID selected in dropdown --> https://plotly.com/python/bubble-charts/
+    
+    //https://plotly.com/python/builtin-colorscales/
+    
     function displayBubbleChart(id) {
       const samples = data.samples.filter(s => s.id.toString() === id)[0];
       const sampleValues = samples.sample_values;
@@ -54,7 +57,7 @@ d3.json(url).then(function(data) {
         marker: {
           size: sampleValues,
           color: otuIds,
-          colorscale: "Earth"
+          colorscale: "plasma"
         },
         text: otuLabels
       };
@@ -70,6 +73,8 @@ d3.json(url).then(function(data) {
     }
 
     // Display gauge chart based on ID selected in dropdown --> https://plotly.com/javascript/gauge-charts/
+    //https://www.w3schools.com/cssref/css_colors.php
+    
     function displayGaugeChart(id) {
       const samples = data.metadata.filter(meta => meta.id.toString() === id)[0];
       const washFreq = samples.wfreq;
@@ -80,8 +85,8 @@ d3.json(url).then(function(data) {
         type: "indicator",
         mode: "gauge+number",
         gauge: {
-          axis: { range: [null, 9] },
-          bar: { color: "darkblue" },
+          axis: { range: [null, 9],tickwidth: 1, tickcolor: "darkblue" },
+          bar: { color: "#9ACD32" },
           steps: [
             { range: [0, 1], color: "#e5f5e0" },
             { range: [1, 2], color: "#c7e9c0" },
