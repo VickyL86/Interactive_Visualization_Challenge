@@ -33,7 +33,10 @@ d3.json(url).then(function(data) {
         y: otuIds,
         text: otuLabels,
         type: "bar",
-        orientation: "h"
+        orientation: "h",
+        marker: {
+          color: "IndianRed" // Pink color
+        }
       };
       const barData = [barTrace];
       const barLayout = {
